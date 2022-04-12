@@ -8,6 +8,7 @@ import Signin from './conponents/Signin/Signin';
 import Login from './conponents/Login/Login';
 import NoPageFound from './conponents/NoPageFound/NoPageFound';
 import Header from './conponents/Header/Header';
+import RequiredAuth from './conponents/RequiredAuth/RequiredAuth';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/packages" element={<Packages></Packages>}></Route>
-        <Route path="/checkout" element={<CheckOut></CheckOut>}></Route>
+        <Route path="/checkout" element={<RequiredAuth><CheckOut></CheckOut></RequiredAuth>}></Route>
         <Route path="/signin" element={<Signin></Signin>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="*" element={<NoPageFound></NoPageFound>}></Route>

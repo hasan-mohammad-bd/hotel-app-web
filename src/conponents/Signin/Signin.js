@@ -13,8 +13,10 @@ const Signin = () => {
     const navigate = useNavigate();
     const [signInWithGoogle] = useSignInWithGoogle(auth);
 
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
-console.log(user);
+
 
   //getting email
   const handleEmail = (e) => {
@@ -26,9 +28,7 @@ console.log(user);
     setPassword(e.target.value);
   };
 
-  if(user){
-    navigate("/home");
-}
+
 
 //creating new user
   const handleCreatingUser = (e) => {
@@ -37,9 +37,10 @@ console.log(user);
     createUserWithEmailAndPassword(email, password);
   };
 
+  if(user){
+    navigate(from, {replace:true})
+}
 
-
-  console.log(user);
   
   return (
     <div>
